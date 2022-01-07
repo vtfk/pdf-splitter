@@ -1,0 +1,44 @@
+{
+  "name": "@vtfk/pdf-splitter",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "standard && jest",
+    "runExample": "node example.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vtfk/pdf-splitter.git"
+  },
+  "keywords": [
+    "pdf",
+    "split",
+    "splitter"
+  ],
+  "author": "jorgtho",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/vtfk/pdf-splitter/issues"
+  },
+  "homepage": "https://github.com/vtfk/pdf-splitter#readme",
+  "dependencies": {
+    "bluebird": "^3.7.2",
+    "node-pdftk": "^2.1.3"
+  },
+  "standard": {
+    "env": [
+      "jest"
+    ]
+  },
+  "jest": {
+    "testMatch": [
+      "**/tests/**/*.[jt]s?(x)",
+      "**/?(*.)+.(spec|test).[jt]s?(x)"
+    ]
+  },
+  "devDependencies": {
+    "jest": "^27.4.7",
+    "standard": "^16.0.4"
+  }
+}
