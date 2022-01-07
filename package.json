@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/vtfk/pdf-splitter#readme",
   "dependencies": {
+    "@vtfk/pdf-text-reader": "^1.0.4",
     "bluebird": "^3.7.2",
     "node-pdftk": "^2.1.3"
   },
