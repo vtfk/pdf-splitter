@@ -1,6 +1,6 @@
 {
   "name": "@vtfk/pdf-splitter",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A pdf splitter based on node-pdftk",
   "main": "index.js",
   "scripts": {
