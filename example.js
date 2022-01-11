@@ -1,5 +1,5 @@
 (async () => {
-  const splitPdf = require('./lib/splitPdf')
+  const splitPdf = require('./index')
 
   const example = {
     pdf: './tests/inputPdfs/keywordPdf.pdf',
