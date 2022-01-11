@@ -1,3 +1,5 @@
+require('dotenv').config()
+
 module.exports = {
-  pdftkExe: 'C:/Program Files (x86)/PDFtk/bin/pdftk'
+  pdftkExe: process.env.PDFTK_EXT || 'C:/Program Files (x86)/PDFtk/bin/pdftk'
 }
