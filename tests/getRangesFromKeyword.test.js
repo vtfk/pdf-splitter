@@ -25,6 +25,16 @@ const shouldSuccessWithOptions = {
   expect: ['1', '2', '3', '5', '8', '10']
 }
 
+const shouldSuccessWithOptions2 = {
+  pdf: path.join(__dirname, './inputPdfs/keywordPdf.pdf'),
+  oneUniqueKeyword: ['nothing', 'yada yada'],
+  options: {
+    onlyPagesWithKeywords: false,
+    orKeywords: true
+  },
+  expect: ['1', '2', '3-4', '5-7', '8', '9', '10']
+}
+
 const shouldFail = {
   pdf: path.join(__dirname, './inputPdfs/keywordPdf.pdf'),
   notPdf: path.join(__dirname, './inputPdfs/yadayada.pdf'),
@@ -53,6 +63,10 @@ describe('GetRangesFromKeywords returns correct ranges when', () => {
   test('using option "onlyPagesWithKeywords" (only returns the pages with keywords on it)', async () => {
     const ranges = await getRange(shouldSuccessWithOptions.pdf, shouldSuccessWithOptions.oneUniqueKeyword, shouldSuccessWithOptions.options)
     expect(ranges).toEqual(shouldSuccessWithOptions.expect)
+  })
+  test('using option "orKeywords" (returns the pages with at least ONE keywords on it)', async () => {
+    const ranges = await getRange(shouldSuccessWithOptions2.pdf, shouldSuccessWithOptions2.oneUniqueKeyword, shouldSuccessWithOptions2.options)
+    expect(ranges).toEqual(shouldSuccessWithOptions2.expect)
   })
 })
 

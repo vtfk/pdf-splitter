@@ -40,7 +40,7 @@ console.log(result)
 ```
 
 ### With array of keywords/sentences
-Specify on which keywords/sentences you want to split the document on
+Specify on which keywords/sentences you want to split the document on (EVERY word/sentence must be present for it to split on that page - see option "orKeywords" for the SOME instead of EVERY)
 
 **NOTE:** At least one keyword or sentence must be unique for the document
 
@@ -60,6 +60,8 @@ console.log(result)
 
 ```
 ### Options
+options.**onlyPagesWithKeywords**
+
 Only return the pages where the keywords are present as separate documents
 ```javascript
 const splitPdf = require('@vtfk/pdf-splitter')
@@ -70,6 +72,23 @@ const pdfToSplit = {
     outputDir: 'path/to/outputDirectory', // Optional, defaults to directory of the input pdf
     outputName: 'nameForResultingPdfs', // Optional, defaults to the <NameOfPdf>-<index>.pdf
     onlyPagesWithKeywords: true
+}
+
+const result = await splitPdf(pdfToSplit)
+console.log(result)
+
+```
+options.**orKeywords**
+Only require ONE of the keywords to be present on the page, for it to split on that page
+```javascript
+const splitPdf = require('@vtfk/pdf-splitter')
+
+const pdfToSplit = {
+    pdfPath: 'a pdf.pdf',
+    keywords: ['a unique sentence for the page you want to split on', 'word', 'another'], // will split if one of these are present on the page
+    outputDir: 'path/to/outputDirectory', // Optional, defaults to directory of the input pdf
+    outputName: 'nameForResultingPdfs', // Optional, defaults to the <NameOfPdf>-<index>.pdf
+    orKeywords: true // Optional, defaults to false
 }
 
 const result = await splitPdf(pdfToSplit)
